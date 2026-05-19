@@ -1,4 +1,37 @@
 import Link from "next/link";
+import { HeroSection } from "@/components/ui/feature-carousel";
+
+const heroImages = [
+  {
+    src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=80",
+    alt: "Abstract colorful fluid art",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=900&auto=format&fit=crop&q=80",
+    alt: "Neon abstract light art",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=900&auto=format&fit=crop&q=80",
+    alt: "Deep space cosmic nebula",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&auto=format&fit=crop&q=80",
+    alt: "Dramatic mountain landscape",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&auto=format&fit=crop&q=80",
+    alt: "Futuristic circuit board technology",
+  },
+];
+
+const heroTitle = (
+  <>
+    Turn any image into a{" "}
+    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5645d4] to-[#007bff]">
+      perfect AI prompt
+    </span>
+  </>
+);
 
 const features = [
   {
@@ -32,36 +65,12 @@ const features = [
 export default function Home() {
   return (
     <div className="bg-canvas text-ink">
-      {/* Hero — Deep Navy Band */}
-      <section className="bg-brand-navy px-6 py-[120px]">
-        <div className="mx-auto flex max-w-[1280px] flex-col items-center text-center">
-          <span className="mb-6 inline-block rounded-full bg-primary px-[10px] py-[4px] text-[13px] font-semibold text-on-dark">
-            Powered by Cloudflare AI
-          </span>
-          <h1 className="max-w-4xl text-[48px] font-semibold leading-[1.10] tracking-[-1px] text-on-dark md:text-[64px] lg:text-[80px] lg:tracking-[-2px]">
-            Turn any image into a{" "}
-            <span className="text-on-dark">perfect AI prompt</span>
-          </h1>
-          <p className="mt-6 max-w-xl text-[18px] leading-[1.5] text-on-dark-muted">
-            Upload a photo, screenshot, or artwork and Promptiqo instantly
-            generates a detailed prompt optimized for your favorite AI art tool.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href="/generator"
-              className="rounded-[8px] bg-primary px-[18px] py-[10px] text-[14px] font-medium text-white transition-colors hover:bg-primary-pressed"
-            >
-              Try it free
-            </Link>
-            <Link
-              href="/how-it-works"
-              className="rounded-[8px] border border-on-dark-muted px-[18px] py-[10px] text-[14px] font-medium text-on-dark transition-colors"
-            >
-              How it works
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Hero — Feature Carousel */}
+      <HeroSection
+        title={heroTitle}
+        subtitle="Upload a photo, screenshot, or artwork and Promptiqo instantly generates a detailed prompt optimized for your favorite AI art tool."
+        images={heroImages}
+      />
 
       {/* Features — Pastel Card Grid */}
       <section className="py-[96px]">

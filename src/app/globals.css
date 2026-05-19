@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme inline {
+@theme {
   /* Typography */
   --font-sans: var(--font-inter), Inter, -apple-system, system-ui, "Segoe UI", Helvetica, sans-serif;
 
@@ -46,10 +46,77 @@
   --color-semantic-error: #e03131;
   --color-brand-purple-800: #391c57;
   --color-brand-orange-deep: #793400;
+
+  /* shadcn/ui compatibility tokens */
+  --color-background: #ffffff;
+  --color-foreground: #1a1a1a;
+  --color-muted-foreground: #5d5b54;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f6f5f4;
+  --color-secondary-foreground: #37352f;
+  --color-destructive: #e03131;
+  --color-destructive-foreground: #ffffff;
+  --color-accent: #f6f5f4;
+  --color-accent-foreground: #37352f;
+  --color-border: #e5e3df;
+  --color-input: #e5e3df;
+  --color-ring: #5645d4;
+}
+
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+*, *::before, *::after {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 body {
   background: var(--color-canvas);
   color: var(--color-ink);
   font-family: var(--font-sans);
+}
+
+html.dark {
+  /* Surface */
+  --color-canvas: #111110;
+  --color-surface: #1c1b19;
+  --color-surface-soft: #161614;
+  --color-hairline: #2d2c29;
+  --color-hairline-soft: #252420;
+  --color-hairline-strong: #3d3c38;
+
+  /* Text */
+  --color-ink-deep: #ffffff;
+  --color-ink: #f0ede8;
+  --color-charcoal: #ccc9c2;
+  --color-slate: #908d86;
+  --color-steel: #706d66;
+  --color-stone: #504e49;
+  --color-muted: #3d3b36;
+
+  /* shadcn/ui dark overrides */
+  --color-background: #111110;
+  --color-foreground: #f0ede8;
+  --color-muted-foreground: #908d86;
+  --color-secondary: #1c1b19;
+  --color-secondary-foreground: #ccc9c2;
+  --color-accent: #1c1b19;
+  --color-accent-foreground: #ccc9c2;
+  --color-border: #2d2c29;
+  --color-input: #2d2c29;
+
+  /* Card Tints — darker/muted in dark mode */
+  --color-tint-peach: #2a1f17;
+  --color-tint-rose: #2a1820;
+  --color-tint-mint: #162318;
+  --color-tint-lavender: #1e1a2e;
+  --color-tint-sky: #161f2b;
+  --color-tint-yellow: #2a2510;
+  --color-tint-yellow-bold: #3a3010;
+  --color-tint-cream: #211f16;
 }
