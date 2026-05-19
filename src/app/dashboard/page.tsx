@@ -14,35 +14,35 @@ const recent = [
 
 export default function DashboardPage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#ededed]">
-      <div className="mx-auto max-w-5xl px-6 py-16">
-        <h1 className="mb-1 text-3xl font-bold">Dashboard</h1>
-        <p className="mb-10 text-white/50">Welcome back.</p>
+    <div className="min-h-screen bg-canvas text-ink">
+      <div className="mx-auto max-w-[1280px] px-6 py-16">
+        <h1 className="mb-1 text-[28px] font-semibold leading-[1.25] text-ink">Dashboard</h1>
+        <p className="mb-10 text-[16px] leading-[1.55] text-slate">Welcome back.</p>
 
         {/* Stats */}
         <div className="mb-10 grid gap-4 sm:grid-cols-3">
           {stats.map(({ label, value }) => (
             <div
               key={label}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6"
+              className="rounded-[12px] bg-surface p-6"
             >
-              <p className="text-3xl font-extrabold text-white">{value}</p>
-              <p className="mt-1 text-sm text-white/50">{label}</p>
+              <p className="text-[36px] font-semibold text-ink">{value}</p>
+              <p className="mt-1 text-[14px] leading-[1.5] text-slate">{label}</p>
             </div>
           ))}
         </div>
 
         {/* Quick actions */}
-        <div className="mb-10 flex gap-4">
+        <div className="mb-10 flex gap-3">
           <Link
             href="/generator"
-            className="rounded-xl bg-violet-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-violet-500"
+            className="rounded-[8px] bg-primary px-[18px] py-[10px] text-[14px] font-medium text-white transition-colors hover:bg-primary-pressed"
           >
             New prompt
           </Link>
           <Link
             href="/history"
-            className="rounded-xl border border-white/20 px-5 py-2.5 text-sm text-white/70 transition-colors hover:border-white/40 hover:text-white"
+            className="rounded-[8px] border border-hairline-strong px-[18px] py-[10px] text-[14px] text-ink transition-colors hover:bg-surface"
           >
             View history
           </Link>
@@ -50,19 +50,19 @@ export default function DashboardPage() {
 
         {/* Recent activity */}
         <div>
-          <h2 className="mb-4 text-sm font-semibold uppercase tracking-widest text-white/40">
+          <h2 className="mb-4 text-[11px] font-semibold uppercase tracking-[1px] text-stone">
             Recent activity
           </h2>
-          <div className="overflow-hidden rounded-2xl border border-white/10">
+          <div className="overflow-hidden rounded-[12px] border border-hairline">
             {recent.map(({ id, label, time }, i) => (
               <div
                 key={id}
-                className={`flex items-center justify-between px-6 py-4 ${
-                  i < recent.length - 1 ? "border-b border-white/10" : ""
+                className={`flex items-center justify-between px-6 py-4 bg-canvas ${
+                  i < recent.length - 1 ? "border-b border-hairline-soft" : ""
                 }`}
               >
-                <span className="text-sm text-white/80">{label}</span>
-                <span className="text-xs text-white/40">{time}</span>
+                <span className="text-[14px] text-charcoal">{label}</span>
+                <span className="text-[13px] text-stone">{time}</span>
               </div>
             ))}
           </div>

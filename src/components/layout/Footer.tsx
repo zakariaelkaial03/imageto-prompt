@@ -29,26 +29,26 @@ const columns = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#0a0a0a] py-12">
-      <div className="mx-auto max-w-7xl px-6">
+    <footer className="bg-canvas border-t border-hairline py-16">
+      <div className="mx-auto max-w-[1280px] px-8">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           <div>
-            <p className="text-xl font-bold text-white">Promptiqo</p>
-            <p className="mt-2 text-sm text-white/50">
+            <p className="text-xl font-semibold text-ink">Promptiqo</p>
+            <p className="mt-2 text-sm text-steel leading-[1.5]">
               Turn any image into a perfect AI art prompt.
             </p>
           </div>
           {columns.map(({ heading, links }) => (
             <div key={heading}>
-              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[1px] text-stone">
                 {heading}
               </p>
-              <ul className="space-y-2">
+              <ul className="space-y-1">
                 {links.map(({ href, label }) => (
                   <li key={href}>
                     <Link
                       href={href}
-                      className="text-sm text-white/60 transition-colors hover:text-white"
+                      className="block py-[4px] text-sm text-steel transition-colors hover:text-ink"
                     >
                       {label}
                     </Link>
@@ -58,7 +58,7 @@ export default function Footer() {
             </div>
           ))}
         </div>
-        <p className="mt-10 text-center text-xs text-white/30">
+        <p className="mt-12 text-center text-[13px] text-stone">
           © {new Date().getFullYear()} Promptiqo. All rights reserved.
         </p>
       </div>

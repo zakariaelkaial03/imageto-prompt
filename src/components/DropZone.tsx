@@ -73,12 +73,12 @@ export default function DropZone({ onFileSelect }: DropZoneProps) {
         onDrop={onDrop}
         className={[
           "flex flex-col items-center justify-center gap-4",
-          "w-full max-w-lg min-h-56 rounded-2xl",
+          "w-full max-w-lg min-h-56 rounded-[12px]",
           "border-2 border-dashed cursor-pointer select-none",
           "transition-colors duration-200",
           isDragging
-            ? "border-violet-400 bg-violet-950/40"
-            : "border-zinc-600 bg-zinc-900 hover:border-zinc-400 hover:bg-zinc-800/60",
+            ? "border-primary bg-tint-lavender"
+            : "border-hairline-strong bg-surface hover:border-ink hover:bg-surface-soft",
         ].join(" ")}
       >
         {/* Upload icon */}
@@ -90,7 +90,7 @@ export default function DropZone({ onFileSelect }: DropZoneProps) {
           strokeWidth={1.5}
           strokeLinecap="round"
           strokeLinejoin="round"
-          className={`w-12 h-12 ${isDragging ? "text-violet-300" : "text-zinc-400"}`}
+          className={`w-12 h-12 ${isDragging ? "text-primary" : "text-stone"}`}
           aria-hidden
         >
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -99,15 +99,15 @@ export default function DropZone({ onFileSelect }: DropZoneProps) {
         </svg>
 
         <div className="text-center px-4">
-          <p className={`text-base font-medium ${isDragging ? "text-violet-200" : "text-zinc-200"}`}>
+          <p className={`text-[16px] font-medium ${isDragging ? "text-primary" : "text-charcoal"}`}>
             Drop your art image here or click to upload
           </p>
-          <p className="mt-1 text-sm text-zinc-500">JPG, PNG, WebP · max 5 MB</p>
+          <p className="mt-1 text-[14px] text-steel">JPG, PNG, WebP · max 5 MB</p>
         </div>
       </div>
 
       {error && (
-        <p role="alert" className="text-sm text-red-400">
+        <p role="alert" className="text-[14px] text-semantic-error">
           {error}
         </p>
       )}

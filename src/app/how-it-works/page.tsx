@@ -23,22 +23,22 @@ const steps = [
 
 export default function HowItWorksPage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#ededed]">
-      <div className="mx-auto max-w-3xl px-6 py-20">
-        <h1 className="mb-4 text-4xl font-extrabold">How It Works</h1>
-        <p className="mb-16 text-white/50 text-lg">
+    <div className="min-h-screen bg-canvas text-ink">
+      <div className="mx-auto max-w-3xl px-6 py-[96px]">
+        <h1 className="mb-4 text-[48px] font-semibold leading-[1.15] tracking-[-0.5px] text-ink">How It Works</h1>
+        <p className="mb-16 text-[18px] leading-[1.5] text-slate">
           Three simple steps from image to perfect prompt.
         </p>
 
         <div className="space-y-12">
           {steps.map(({ number, title, description }) => (
             <div key={number} className="flex gap-8">
-              <span className="shrink-0 text-4xl font-black text-violet-500/30">
+              <span className="shrink-0 text-[48px] font-semibold leading-[1.15] text-primary/30">
                 {number}
               </span>
               <div>
-                <h2 className="text-xl font-semibold text-white">{title}</h2>
-                <p className="mt-2 text-white/50">{description}</p>
+                <h2 className="text-[22px] font-semibold leading-[1.30] text-ink">{title}</h2>
+                <p className="mt-2 text-[16px] leading-[1.55] text-slate">{description}</p>
               </div>
             </div>
           ))}
@@ -47,7 +47,7 @@ export default function HowItWorksPage() {
         <div className="mt-20 text-center">
           <Link
             href="/generator"
-            className="rounded-xl bg-violet-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-violet-500"
+            className="inline-block rounded-[8px] bg-primary px-[18px] py-[10px] text-[14px] font-medium text-white transition-colors hover:bg-primary-pressed"
           >
             Try it now
           </Link>

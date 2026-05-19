@@ -1,3 +1,5 @@
+"use client";
+
 const samples = [
   {
     id: 1,
@@ -37,29 +39,38 @@ const samples = [
   },
 ];
 
+const cardTints = [
+  "bg-tint-mint",
+  "bg-tint-sky",
+  "bg-tint-yellow",
+  "bg-tint-lavender",
+  "bg-tint-peach",
+  "bg-tint-rose",
+];
+
 export default function GalleryPage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#ededed]">
-      <div className="mx-auto max-w-6xl px-6 py-20">
-        <h1 className="mb-2 text-4xl font-extrabold">Gallery</h1>
-        <p className="mb-12 text-white/50">
+    <div className="min-h-screen bg-canvas text-ink">
+      <div className="mx-auto max-w-[1280px] px-6 py-[96px]">
+        <h1 className="mb-2 text-[48px] font-semibold leading-[1.15] tracking-[-0.5px] text-ink">Gallery</h1>
+        <p className="mb-12 text-[16px] leading-[1.55] text-slate">
           Community-generated prompts. Get inspired and try the generator.
         </p>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {samples.map(({ id, label, prompt }) => (
+          {samples.map(({ id, label, prompt }, i) => (
             <div
               key={id}
-              className="flex flex-col rounded-2xl border border-white/10 bg-white/5 p-6"
+              className="flex flex-col rounded-[12px] border border-hairline bg-canvas p-6"
             >
-              <div className="mb-4 h-36 rounded-xl bg-white/5 flex items-center justify-center">
+              <div className={`mb-4 h-36 rounded-[8px] ${cardTints[i % cardTints.length]} flex items-center justify-center`}>
                 <span className="text-4xl">🖼️</span>
               </div>
-              <h2 className="font-semibold text-white">{label}</h2>
-              <p className="mt-2 flex-1 text-sm text-white/50 line-clamp-4">{prompt}</p>
+              <h2 className="text-[16px] font-semibold text-ink">{label}</h2>
+              <p className="mt-2 flex-1 text-[14px] leading-[1.5] text-slate line-clamp-4">{prompt}</p>
               <button
                 onClick={() => navigator.clipboard.writeText(prompt)}
-                className="mt-4 self-start rounded-lg border border-white/20 px-3 py-1 text-xs text-white/60 transition-colors hover:border-white/40 hover:text-white"
+                className="mt-4 self-start rounded-[8px] border border-hairline-strong px-3 py-[6px] text-[13px] font-medium text-slate transition-colors hover:border-ink hover:text-ink"
               >
                 Copy prompt
               </button>

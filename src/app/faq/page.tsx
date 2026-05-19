@@ -41,28 +41,28 @@ export default function FAQPage() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#ededed]">
-      <div className="mx-auto max-w-2xl px-6 py-20">
-        <h1 className="mb-2 text-4xl font-extrabold">FAQ</h1>
-        <p className="mb-12 text-white/50">Frequently asked questions.</p>
+    <div className="min-h-screen bg-canvas text-ink">
+      <div className="mx-auto max-w-2xl px-6 py-[96px]">
+        <h1 className="mb-2 text-[48px] font-semibold leading-[1.15] tracking-[-0.5px] text-ink">FAQ</h1>
+        <p className="mb-12 text-[16px] leading-[1.55] text-slate">Frequently asked questions.</p>
 
         <div className="space-y-2">
           {faqs.map(({ q, a }, i) => (
             <div
               key={i}
-              className="rounded-2xl border border-white/10 bg-white/5 overflow-hidden"
+              className="overflow-hidden rounded-[8px] border border-hairline bg-canvas"
             >
               <button
-                className="flex w-full items-center justify-between px-6 py-4 text-left text-sm font-medium text-white"
+                className="flex w-full items-center justify-between px-6 py-4 text-left text-[16px] font-medium text-ink"
                 onClick={() => setOpen(open === i ? null : i)}
               >
                 {q}
-                <span className="ml-4 shrink-0 text-white/40">
+                <span className="ml-4 shrink-0 text-steel text-lg">
                   {open === i ? "−" : "+"}
                 </span>
               </button>
               {open === i && (
-                <p className="border-t border-white/10 px-6 py-4 text-sm text-white/60">
+                <p className="border-t border-hairline px-6 py-4 text-[14px] leading-[1.5] text-slate">
                   {a}
                 </p>
               )}

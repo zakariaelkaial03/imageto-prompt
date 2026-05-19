@@ -38,24 +38,24 @@ export default function GeneratorPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#ededed]">
+    <div className="min-h-screen bg-canvas text-ink">
       <div className="mx-auto max-w-2xl px-6 py-16">
-        <h1 className="mb-2 text-3xl font-bold">Generator</h1>
-        <p className="mb-10 text-white/50">
+        <h1 className="mb-2 text-[28px] font-semibold leading-[1.25] text-ink">Generator</h1>
+        <p className="mb-10 text-[16px] leading-[1.55] text-slate">
           Upload an image to generate a detailed AI art prompt.
         </p>
 
         <DropZone onFileSelect={handleFileSelect} />
 
         {state === "loading" && (
-          <div className="mt-8 flex items-center gap-3 text-white/60">
-            <span className="inline-block h-5 w-5 animate-spin rounded-full border-2 border-violet-400 border-t-transparent" />
-            Analyzing image…
+          <div className="mt-8 flex items-center gap-3 text-slate">
+            <span className="inline-block h-5 w-5 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+            <span className="text-[14px]">Analyzing image…</span>
           </div>
         )}
 
         {state === "error" && (
-          <div className="mt-8 rounded-xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-300">
+          <div className="mt-8 rounded-[8px] border border-semantic-error/30 bg-semantic-error/10 p-4 text-[14px] text-semantic-error">
             {errorMsg}
           </div>
         )}
@@ -63,17 +63,17 @@ export default function GeneratorPage() {
         {state === "done" && prompt && (
           <div className="mt-8">
             <div className="flex items-center justify-between">
-              <h2 className="text-sm font-semibold uppercase tracking-widest text-white/40">
+              <h2 className="text-[11px] font-semibold uppercase tracking-[1px] text-stone">
                 Generated Prompt
               </h2>
               <button
                 onClick={handleCopy}
-                className="rounded-lg border border-white/20 px-3 py-1 text-xs text-white/70 transition-colors hover:border-white/40 hover:text-white"
+                className="rounded-[8px] border border-hairline-strong px-3 py-[6px] text-[13px] font-medium text-slate transition-colors hover:border-ink hover:text-ink"
               >
                 {copied ? "Copied!" : "Copy"}
               </button>
             </div>
-            <pre className="mt-3 whitespace-pre-wrap rounded-2xl border border-white/10 bg-white/5 p-6 text-sm leading-relaxed text-white/90">
+            <pre className="mt-3 whitespace-pre-wrap rounded-[12px] border border-hairline bg-surface p-6 text-[14px] leading-[1.55] text-charcoal">
               {prompt}
             </pre>
           </div>
